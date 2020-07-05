@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Algorithm from './Algorithm'
-import {sort} from '../util/mergesort';
+import {sort} from '../util/mergesort'
 import Graph from '../Graph'
+import UseWindowDimensions from '../../general/UseWindowDimensions';
 
 export default class MergeSort extends Component {
     constructor(props) {
@@ -39,11 +40,15 @@ export default class MergeSort extends Component {
 
     render() {
         return (
-            <div>
-                Merge Sort
-                <Algorithm/>
-                <Graph dataUpdate={this.dataUpdate} speed={50} resetStack={this.resetStack}/>
-            </div>
+            <Fragment>
+                <h3 className="text-center my-3">Merge Sort</h3>
+                <div className="row justify-content-around">
+                    <UseWindowDimensions render={dims =>
+                        <Graph className="col-7" {...dims} dataUpdate={this.dataUpdate} speed={100} resetStack={this.resetStack}/>
+                    }/>
+                    <Algorithm className="col-4"/>
+                </div>
+            </Fragment>
         )
     }
 }

@@ -1,7 +1,3 @@
-export const WIDTH = 800;
-export const HEIGHT = 500;
-export const MAX_BAR_HEIGHT = HEIGHT * 0.92;
-export const MIN_BAR_HEIGHT = HEIGHT * 0.08;
 export const MIN_BAR_WIDTH = 3; 
 export const MAX_BAR_WIDTH = 60;
 export const SPACING = 2;

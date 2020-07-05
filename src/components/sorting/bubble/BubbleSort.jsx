@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
-import Algorithm from './Algorithm';
-import Graph from '../Graph';
-import {sort} from '../util/bubblesort';
+import Algorithm from './Algorithm'
+import Graph from '../Graph'
+import {sort} from '../util/bubblesort'
+import UseWindowDimensions from '../../general/UseWindowDimensions'
 
 export default class BubbleSort extends Component {
     
@@ -43,11 +44,15 @@ export default class BubbleSort extends Component {
 
     render() {
         return (
-            <div>
-                Bubble Sort
-                <Algorithm />
-                <Graph dataUpdate={this.dataUpdate} speed={60} resetStack={this.resetStack}/>
-            </div>
+            <Fragment>
+                <h3 className="text-center my-3">Bubble Sort</h3>
+                <div className="row justify-content-around">
+                    <UseWindowDimensions render={dims =>
+                        <Graph className="col-7" {...dims} dataUpdate={this.dataUpdate} speed={60} resetStack={this.resetStack}/>
+                    }/>
+                    <Algorithm className="col-4"/>
+                </div>
+            </Fragment>
         )
     }
 }
